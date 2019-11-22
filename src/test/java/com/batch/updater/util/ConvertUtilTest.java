@@ -5,15 +5,13 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ConvertUtilTest {
 
     @Test
-    public void test()
+    void test()
     {
         String [] files = {"img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"};
-        System.out.println("RESULT:: " + solution(files));
+        System.out.println("RESULT:: 123 " + solution(files));
         /**
          * 소스 파일 저장소에 저장된 파일명은 100 글자 이내로, 영문 대소문자, 숫자, 공백(" ), 마침표(.), 빼기 부호(-")만으로
          * 이루어져 있다. 파일명은 영문자로 시작하며, 숫자를 하나 이상 포함하고 있다.
@@ -37,7 +35,7 @@ class ConvertUtilTest {
          */
     }
 
-    public String[] solution(String[] files)
+    String[] solution(String[] files)
     {
         String[] answer = new String[files.length];
         List<File> fList = new ArrayList<File>();
