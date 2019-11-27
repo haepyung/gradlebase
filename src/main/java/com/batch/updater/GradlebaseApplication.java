@@ -9,7 +9,7 @@ public class GradlebaseApplication {
 	public static void main(String[] args)
 	{
 		SpringApplication.run(GradlebaseApplication.class, args);
-		System.out.println("xxxtest");
+		System.out.println("xxxtest2");
 	}
 
 }
