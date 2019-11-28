@@ -6,12 +6,6 @@ pipeline {
                 echo 'Hello World~!!!!'
             }
         }
-
-        stage('Build') {
-            steps {
-                bat 'gradlew build'
-            }
-        }
     }
     //마지막 어떻게 할껀지
     post {
