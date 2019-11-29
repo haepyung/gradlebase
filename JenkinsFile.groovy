@@ -1,22 +1,10 @@
 pipeline {
+    environment {
+        registry = "mamohr/centos-java"
+        registryCredential = 'docker'
+    }
     agent any
     stages {
-        stage('START') {
-            steps {
-                echo 'Hello!! World~!!!!'
-            }
-        }
-
-        /*
-        stage('Git Pull') {
-            steps {
-                echo "Git Pull"
-                git branch: 'master',
-                        credentialsId: 'Jenkins',
-                        url: 'https://github.com/haepyung/gradlebase.git'
-            }
-        }
-        */
         stage('Build') {
             steps {
                 echo "Build"
@@ -24,7 +12,21 @@ pipeline {
                 sh('./gradlew build')
             }
         }
-    }
+
+        stage('Build docker image') {
+            steps {
+                withDockerRegistry([ credentialsId: registryCredential, url: "" ]) {
+                    sh 'docker build -t $registry'
+                }
+            }
+        }
+
+        stage('Clean docker image') {
+            steps{
+                sh "docker rmi $registry"
+            }
+        }
+
     //마지막 어떻게 할껀지
     post {
         always {
@@ -36,7 +38,6 @@ pipeline {
         }
     }
 }
-
 
 pipeline {
     /* insert Declarative Pipeline here */
