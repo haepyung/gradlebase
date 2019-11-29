@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo "Git Pull"
                 git branch: 'master',
-                        credentialsId: 'heapyung',
+                        credentialsId: 'Jenkins',
                         url: 'https://github.com/haepyung/gradlebase.git'
             }
         }
