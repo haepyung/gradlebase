@@ -15,17 +15,18 @@ pipeline {
 
         stage('Build docker image') {
             steps {
-                withDockerRegistry([ credentialsId: registryCredential, url: "" ]) {
+                withDockerRegistry([credentialsId: registryCredential, url: ""]) {
                     sh 'docker build -t $registry'
                 }
             }
         }
 
         stage('Clean docker image') {
-            steps{
+            steps {
                 sh "docker rmi $registry"
             }
         }
+    }
 
     //마지막 어떻게 할껀지
     post {
@@ -37,8 +38,4 @@ pipeline {
             //mail to: team@gmail.com, subject: 'Pipeline fail email'
         }
     }
-}
-
-pipeline {
-    /* insert Declarative Pipeline here */
 }
