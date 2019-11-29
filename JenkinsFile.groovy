@@ -3,13 +3,7 @@ pipeline {
     stages {
         stage('START') {
             steps {
-                echo 'Hello!! World~!!!!'
-            }
-        }
-
-        stage('Build') {
-            steps {
-                bat 'gradlew build'
+                echo 'Hello!! World~!!!!?!?!'
             }
         }
     }
