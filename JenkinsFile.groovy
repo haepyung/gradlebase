@@ -16,7 +16,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 withDockerRegistry([credentialsId: registryCredential, url: ""]) {
-                    sh 'docker build -t $registry'
+                    sh 'docker build -t $registry .'
                 }
             }
         }
