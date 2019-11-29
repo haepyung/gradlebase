@@ -7,6 +7,7 @@ pipeline {
             }
         }
 
+        /*
         stage('Git Pull') {
             steps {
                 echo "Git Pull"
@@ -15,6 +16,7 @@ pipeline {
                         url: 'https://github.com/haepyung/gradlebase.git'
             }
         }
+        */
         stage('Build') {
             steps {
                 echo "Build"
