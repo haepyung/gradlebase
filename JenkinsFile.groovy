@@ -7,9 +7,18 @@ pipeline {
             }
         }
 
+        stage('Git Pull') {
+            steps {
+                echo "Git Pull"
+                git branch: 'master',
+                        credentialsId: 'heapyung',
+                        url: 'https://github.com/haepyung/gradlebase.git'
+            }
+        }
         stage('Build') {
             steps {
-                sh 'chmod +x ./gradlew build'
+                echo "Build"
+                sh('gradle build')
             }
         }
     }
