@@ -15,6 +15,13 @@ pipeline {
             }
         }
 
+        stage('Build docker before') {
+            agent any
+            steps {
+                sh pwd
+            }
+        }
+
         stage('Build docker ps') {
             agent { dockerfile true }
             steps {
