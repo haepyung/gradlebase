@@ -18,7 +18,7 @@ pipeline {
         stage('Build docker before') {
             agent any
             steps {
-                sh pwd
+                sh "pwd"
             }
         }
 
