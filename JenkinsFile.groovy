@@ -26,7 +26,7 @@ pipeline {
             agent { dockerfile true }
             steps {
                     sh 'docker build -t mamohr/centos-java .'
-                    sh 'docker run -it -d mamohr/centos-java'
+                    //sh 'docker run -it -d mamohr/centos-java'
             }
         }
     }
