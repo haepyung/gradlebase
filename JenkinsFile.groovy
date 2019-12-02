@@ -13,17 +13,10 @@ pipeline {
             }
         }
 
-        stage('Build docker image') {
+        stage('Build docker ps') {
             steps {
-                withDockerRegistry([credentialsId: registryCredential, url: ""]) {
-                    sh 'docker build -t $registry .'
+                    sh 'docker ps -a'
                 }
-            }
-        }
-
-        stage('Clean docker image') {
-            steps {
-                sh "docker rmi $registry"
             }
         }
     }
