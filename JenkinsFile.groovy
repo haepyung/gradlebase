@@ -17,7 +17,6 @@ pipeline {
             steps {
                     sh 'docker ps -a'
                 }
-            }
         }
     }
 
