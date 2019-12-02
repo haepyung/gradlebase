@@ -18,6 +18,7 @@ pipeline {
         stage('Build docker ps') {
             agent { dockerfile true }
             steps {
+                sh 'pwd'
                     //sh 'docker build -t mamohr/centos-java .'
                     //sh 'docker run -it -d mamohr/centos-java'
             }
