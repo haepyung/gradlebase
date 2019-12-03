@@ -14,7 +14,7 @@ pipeline {
             agent any
             steps {
                 sh 'docker build -t gradlet1 .'
-                sh 'docker run -d -p 8809:8809 gradlet1'
+                sh 'docker run -d -p 8888:8888 gradlet1'
             }
         }
     }
