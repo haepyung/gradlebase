@@ -17,17 +17,6 @@ pipeline {
                 sh 'docker run -d gradlet1'
             }
         }
-
-        /*
-        stage('Build docker ps') {
-            agent any
-            steps {
-                sh 'docker build -t gradleT1 ./'
-                sh 'docker run -it -d gradleT1'
-            }
-        }
-
-         */
     }
 
     //마지막 어떻게 할껀지
