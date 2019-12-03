@@ -18,9 +18,14 @@ pipeline {
         stage('dockerfile add jar') {
             agent { dockerfile true }
             steps {
-                sh 'docker ps -a'
+                echo 'add Jar'
+            }
+        }
+
+        stage('dockerfile add jar') {
+            agent any
+            steps {
                 sh 'docker build -t gradlet1 .'
-                sh 'pwd'
             }
         }
 
