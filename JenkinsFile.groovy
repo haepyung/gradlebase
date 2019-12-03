@@ -15,8 +15,15 @@ pipeline {
             }
         }
 
-        stage('Build docker ps') {
+        stage('dockerfile add jar') {
             agent { dockerfile true }
+            steps {
+                echo '.jar move'
+            }
+        }
+
+        stage('Build docker ps') {
+            agent any
             steps {
                 sh 'docker build -tag gradleT1 ./'
                 sh 'docker run -it -d gradleT1'
