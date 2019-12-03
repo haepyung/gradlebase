@@ -19,7 +19,7 @@ pipeline {
             agent any
             steps {
                 sh 'docker build -t gradlet2 .'
-                sh 'docker run -d -p 8809:8080 gradlet2'
+                sh 'docker run -d -p 8809:8809 gradlet2'
             }
         }
 
