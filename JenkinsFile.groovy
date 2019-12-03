@@ -16,23 +16,13 @@ pipeline {
         }
 
         stage('dockerfile add jar') {
-            agent { dockerfile true }
-            steps {
-                sh 'docker build -t gradlet1 ./'
-                sh 'pwd'
-            }
-        }
-
-        /*
-        stage('Build docker ps') {
             agent any
             steps {
-                sh 'docker build -t gradleT1 ./'
-                sh 'docker run -it -d gradleT1'
+                sh 'docker build -t gradlet2 .'
+                sh 'docker run -it -d gradlet2'
             }
         }
 
-         */
     }
 
     //마지막 어떻게 할껀지
