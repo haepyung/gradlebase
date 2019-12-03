@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('dockerfile add jar') {
+        stage('dockerfile build') {
             agent any
             steps {
                 sh 'docker build -t gradlet1 .'
