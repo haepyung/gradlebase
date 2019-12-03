@@ -15,13 +15,6 @@ pipeline {
             }
         }
 
-        stage('dockerfile add jar') {
-            agent { dockerfile true }
-            steps {
-                echo 'add Jar'
-            }
-        }
-
         stage('dockerfile build') {
             agent any
             steps {
