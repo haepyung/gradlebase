@@ -16,7 +16,10 @@ pipeline {
         }
 
         stage('dockerfile add jar') {
-            agent { dockerfile true }
+            agent { dockerfile {
+                true
+                filename 'gradleT1'
+            } }
             steps {
                 sh 'docker build -t gradleT1 .'
                 sh 'pwd'
