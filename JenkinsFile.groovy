@@ -19,7 +19,7 @@ pipeline {
             agent any
             steps {
                 sh 'docker build -t gradlet2 .'
-                sh 'docker run gradlet2'
+                sh 'docker run -d gradlet2'
             }
         }
 
