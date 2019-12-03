@@ -20,8 +20,6 @@ pipeline {
             steps {
                 sh 'docker build -t gradlet1 .'
                 sh 'docker run -it gradlet1 /bin/bash'
-                sh 'cd /var'
-                sh 'java -jar app.jar'
             }
         }
 
