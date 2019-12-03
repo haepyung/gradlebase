@@ -1,9 +1,4 @@
 pipeline {
-
-    environment {
-        registry = "mamohr/centos-java"
-        registryCredential = 'docker'
-    }
     agent none
     stages {
         stage('Build') {
@@ -19,7 +14,7 @@ pipeline {
             agent any
             steps {
                 sh 'docker build -t gradlet1 .'
-                sh 'docker run -it -d gradlet1'
+                sh 'docker run -d gradlet1'
             }
         }
 
