@@ -3,8 +3,8 @@ pipeline {
     stages {
         stage('[STEP_1] show Infos') {
             steps {
-                sh 'printenv'
-                echo 'search branch Name:: ${env.GIT_BRANCH}'
+                //sh 'printenv' -- 쓸수 있는 전체 정보
+                echo 'search branch Name:: '${env.GIT_BRANCH}
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
             }
         }
     }
-    //마지막 어떻게 할껀지
+
     post {
         always {
             echo 'build done!!!!!'
