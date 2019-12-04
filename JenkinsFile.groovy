@@ -13,9 +13,8 @@ pipeline {
         stage('dockerfile build') {
             agent any
             steps {
-                sh 'docker stop gradlebuild'
-                sh 'docker rm gradlebuild'
-                sh 'docker rmi gradletsource'
+                sh 'docker stop gradlebuild || true && docker rm gradlebuild || true'
+                sh 'docker rmi gradletsource || true'
                 sh 'docker build -t gradletsource .'
                 sh 'docker run --name gradlebuild -d -p 8888:8888 gradletsource'
             }
