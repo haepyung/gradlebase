@@ -4,7 +4,7 @@ pipeline {
         stage('[STEP_1] show Infos') {
             steps {
                 //sh 'printenv' -- 쓸수 있는 전체 정보
-                echo "search branch ID:: ${env.BUILD_ID}, Name:: ${env.GIT_BRANCH}"
+                echo "search branch ID:: ${env.BRANCH_NAME}, Name:: ${env.GIT_BRANCH}"
             }
         }
 
@@ -14,11 +14,18 @@ pipeline {
                 sh './gradlew build'
             }
         }
-        
+
         stage ('Test 3: Dev') {
-            when { not { branch 'master' } }
+            when { branch 'master' }
             steps {
-                echo 'I execute on non-master branches.'
+                echo 'I execute on master branches.'
+            }
+        }
+
+        stage ('Test 3: Dev') {
+            when { not {branch 'deb'} }
+            steps {
+                echo 'no have deb branch!!'
             }
         }
 
