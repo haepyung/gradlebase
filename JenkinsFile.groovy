@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        branch_name = ${env.GIT_BRANCH}
+        branch_name = "${env.GIT_BRANCH}"
     }
     stages {
         stage('[STEP_1] show Infos') {
