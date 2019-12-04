@@ -14,14 +14,7 @@ pipeline {
                 sh './gradlew build'
             }
         }
-
-        stage ('Test 3: Master') {
-            when { ${env.GIT_BRANCH} == 'origin/master' }
-            steps {
-                echo 'I only execute on the master branch.'
-            }
-        }
-
+        
         stage ('Test 3: Dev') {
             when { not { branch 'master' } }
             steps {
