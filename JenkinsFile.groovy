@@ -4,6 +4,7 @@ pipeline {
         stage('[STEP_1] show Infos') {
             steps {
                 sh 'printenv'
+                echo 'search branch Name:: ${env.GIT_BRANCH}'
             }
         }
 
