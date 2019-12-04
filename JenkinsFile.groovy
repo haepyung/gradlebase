@@ -23,7 +23,7 @@ pipeline {
                 sh "docker stop gradlebuild_${branch_name}|| true && docker rm gradlebuild_${branch_name} || true"
                 sh "docker rmi gradletsource_${branch_name} || true"
                 sh "docker build -t gradletsource_${branch_name} ."
-                sh "docker run --name gradlebuild_${branch_name} -d -p 8888:8888 gradletsource"
+                sh "docker run --name gradlebuild_${branch_name} -d -p 8888:8888 gradletsource_${branch_name}"
             }
         }
     }
