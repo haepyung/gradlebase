@@ -16,7 +16,7 @@ pipeline {
         }
 
         stage ('Test 3: Master') {
-            when { branch 'origin/master' }
+            when { ${env.GIT_BRANCH} == 'origin/master' }
             steps {
                 echo 'I only execute on the master branch.'
             }
