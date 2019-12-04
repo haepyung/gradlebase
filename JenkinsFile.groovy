@@ -1,10 +1,13 @@
 pipeline {
     agent any
+    environment {
+        branch_name = ${env.GIT_BRANCH}
+    }
     stages {
         stage('[STEP_1] show Infos') {
             steps {
                 //sh 'printenv' -- 쓸수 있는 전체 정보
-                echo "search branch ID:: ${env.BRANCH_NAME}, Name:: ${env.GIT_BRANCH}"
+                echo "search branch ID:: ${env.GIT_BRANCH}, Name:: ${branch_name}"
             }
         }
 
