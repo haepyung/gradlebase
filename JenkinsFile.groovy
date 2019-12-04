@@ -13,8 +13,11 @@ pipeline {
         stage('dockerfile build') {
             agent any
             steps {
-                sh 'docker build -t gradlet1 .'
-                sh 'docker run -d -p 8888:8888 gradlet1'
+                sh 'docker stop gradlebuild'
+                sh 'docker rm gradlebuild'
+                sh 'docker rmi gradletsource'
+                sh 'docker build -t gradletsource .'
+                sh 'docker run --name gradlebuild -d -p 8888:8888 gradletsource'
             }
         }
     }
@@ -26,7 +29,7 @@ pipeline {
         }
         failure {
             echo 'build Fail!!!!!'
-            //mail to: team@gmail.com, subject: 'Pipeline fail email'
+            // mail to: team@gmail.com, subject: 'Pipeline fail email'
         }
     }
 }
