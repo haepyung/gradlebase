@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        stage ('Test 3: Dev') {
+        stage ('Test 3: Master') {
             when { branch 'master' }
             steps {
                 echo 'I execute on master branches.'
