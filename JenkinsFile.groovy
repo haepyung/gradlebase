@@ -1,8 +1,19 @@
 pipeline {
-    agent none
+    agent any
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+    }
     stages {
+        stage('show:: Branch Name') {
+            steps {
+                echo "Database engine is ${DB_ENGINE}"
+                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
+                sh 'printenv'
+            }
+        }
+
         stage('Build') {
-            agent any
             steps {
                 echo "Build"
                 sh 'chmod +x ./gradlew'
@@ -11,7 +22,6 @@ pipeline {
         }
 
         stage('dockerfile build') {
-            agent any
             steps {
                 sh 'docker stop gradlebuild || true && docker rm gradlebuild || true'
                 sh 'docker rmi gradletsource || true'
@@ -20,7 +30,6 @@ pipeline {
             }
         }
     }
-
     //마지막 어떻게 할껀지
     post {
         always {
