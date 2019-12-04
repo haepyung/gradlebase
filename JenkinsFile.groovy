@@ -1,19 +1,13 @@
 pipeline {
     agent any
-    environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
-    }
     stages {
-        stage('show:: Branch Name') {
+        stage('[STEP_1] show Infos') {
             steps {
-                echo "Database engine is ${DB_ENGINE}"
-                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
                 sh 'printenv'
             }
         }
 
-        stage('Build') {
+        stage('[STEP_2] gradle build') {
             steps {
                 echo "Build"
                 sh 'chmod +x ./gradlew'
@@ -21,7 +15,7 @@ pipeline {
             }
         }
 
-        stage('dockerfile build') {
+        stage('[STEP_3] dockerfile build') {
             steps {
                 sh 'docker stop gradlebuild || true && docker rm gradlebuild || true'
                 sh 'docker rmi gradletsource || true'
