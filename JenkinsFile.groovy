@@ -31,9 +31,11 @@ pipeline {
     post {
         always {
             echo 'build done!!!!!'
+            slackSend (color: "good", message: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
         }
         failure {
             echo 'build Fail!!!!!'
+            slackSend (color: "danger", message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
             // mail to: team@gmail.com, subject: 'Pipeline fail email'
         }
     }
