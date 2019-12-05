@@ -3,7 +3,6 @@ pipeline {
     environment {
         slack_baseurl = "https://haesoonee.slack.com/services/hooks/jenkins-ci/"
         slack_channel = "jenkins"
-        slack_token = "l50yPrWd1BLCEN1tfsxZTyc7"
         branch_name = "${env.NODE_NAME}"
     }
     stages {
@@ -34,11 +33,11 @@ pipeline {
     post {
         always {
             echo 'build done!!!!!'
-            slackSend baseUrl: "${slack_baseurl}", channel: "${slack_channel}",  color: "good", message: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+            slackSend baseUrl: "${slack_baseurl}", channel: "${slack_channel}",  color: "good", message: "SUCCESS BUILD: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
         }
         failure {
             echo 'build Fail!!!!!'
-            slackSend baseUrl: "${slack_baseurl}", channel: "${slack_channel}",  color: "danger", message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})", token: "${slack_token}"
+            slackSend baseUrl: "${slack_baseurl}", channel: "${slack_channel}",  color: "danger", message: "FAILED BUILD: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
         }
     }
 }
