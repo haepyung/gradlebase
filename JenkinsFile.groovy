@@ -31,6 +31,7 @@ pipeline {
     post {
         always {
             echo 'build done!!!!!'
+            slackSend baseUrl: 'https://haesoonee.slack.com/services/hooks/jenkins-ci/', channel: '#jenkins',  color: "good", message: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})", token: 'l50yPrWd1BLCEN1tfsxZTyc7'
             slackSend (color: "good", message: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
         }
         failure {
