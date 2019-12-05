@@ -32,8 +32,8 @@ pipeline {
     post {
         always {
             echo 'build done!!!!!'
-            slackSend color: "good", message: "SUCCESS BUILD: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
-            //slackSend baseUrl: "${slack_baseurl}",  color: "good", message: "SUCCESS BUILD: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+            //slackSend color: "good", message: "SUCCESS BUILD: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+            slackSend baseUrl: "${slack_baseurl}",  color: "good", message: "SUCCESS BUILD: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
         }
         failure {
             echo 'build Fail!!!!!'
