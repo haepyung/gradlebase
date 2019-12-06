@@ -29,6 +29,7 @@ pipeline {
     post {
         always {
             echo 'build done!!!!!'
+            slackSend color: "good", message: "FIN STEP: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
         }
         failure {
             echo 'build Fail!!!!!'
